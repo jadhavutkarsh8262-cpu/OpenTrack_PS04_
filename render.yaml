@@ -1,5 +1,4 @@
 services:
-  # FastAPI Python Backend Service with FFmpeg
   - type: web
     name: reel-studio-backend
     env: docker
@@ -12,23 +11,24 @@ services:
         value: 8000
       - key: ENABLE_WHISPER
         value: "false"
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: LLM_MODEL
+        sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
+      - key: GEMINI_API_KEY
+        sync: false
 
-  # React Frontend Static Site
   - type: web
     name: reel-studio-frontend
     env: static
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
-    plan: free
     routes:
       - type: rewrite
         source: /*
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: reel-studio-backend
-          property: host
+        sync: false
