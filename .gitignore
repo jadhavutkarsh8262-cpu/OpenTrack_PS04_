@@ -38,3 +38,5 @@ frontend copy/
 .DS_Store
 Thumbs.db
 *.log
+
+cloudflared.exe
