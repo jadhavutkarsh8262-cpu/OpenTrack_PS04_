@@ -1,6 +1,40 @@
+# Virtual environments
 .venv/
+venv/
+env/
+
+# Node dependencies & builds
 node_modules/
-.env
-__pycache__/
-backend/storage/
 dist/
+build/
+.remotion/
+remotion/out/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Storage directories & media
+backend/storage/uploads/*
+backend/storage/exports/*
+backend/storage/projects/*.json
+!backend/storage/**/.gitkeep
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.ass
+
+# Temp & backup directories
+frontend copy/
+.DS_Store
+Thumbs.db
+*.log
